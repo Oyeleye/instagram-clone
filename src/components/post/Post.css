@@ -1,0 +1,19 @@
+.post {
+    border: 0ch;
+}
+
+.post_header {
+    display: flex;
+}
+
+.post_avatar {
+    border-bottom: 0ex;
+}
+
+.post_text {
+    margin-left:10px;
+}
+
+.post_image {
+    object-fit: contain;
+}
