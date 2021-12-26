@@ -1,5 +1,8 @@
 import './App.css';
-import Post from "./components/post/Post"
+import Post from "./components/post/Post";
+import nakel from "../src/images/nakel.png";
+import neks from "../src/images/neks.png";
+import wiz from "../src/images/wiz.png";
 
 function App() {
   return (
@@ -8,13 +11,14 @@ function App() {
         <img
           className="app_headerImage" 
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt=""
+          alt="Instagram"
         />
       </div>
       <h1>Hello</h1>
-      {<Post/>}
-      {<Post/>}
-      {<Post/>}
+      <Post username="Oxy" imageUrl="https://img.huffingtonpost.com/asset/5d037306240000300f91f7b1.jpeg?ops=1778_1000" caption=": My first caption"/>
+      <Post username="Bj Nakel" imageUrl={nakel} caption=": Welcome here, guys"/>
+      <Post username="Anampopiyu" imageUrl={wiz} caption=": Thanks, my bro!"/>
+      <Post username="Neks" imageUrl={neks} caption=": Glad to be here"/>
     </div>
   );
 }
