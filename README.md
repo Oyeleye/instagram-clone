@@ -1,4 +1,4 @@
-Instagram clone to be built utilizing React, CSS, Material-UI, Firebase for hosting, database and user authentication.
+Instagram clone to be built utilizing React, CSS, JSX/HTML, Material-UI, Firebase for hosting, database and user authentication.
 
 For customazibility, for Post component imported to App.js, I used props to pass in username, inageUrl and caption.
 
