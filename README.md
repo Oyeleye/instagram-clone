@@ -16,4 +16,42 @@ Firebase found a middle ground to combine these 2,  thereby solving the problem 
 
 I entered value for each field, and clicked “auto-ID”, and then saved.
 
-Then, I connected the react to firebase database. To do this, I clicked on the settings icon on the side bar displaying “Project Overview”, then clicked “Project settings”, then scrolled to the button to then click “config” and then copied the code and pasted to a file I created called firebase.js, which will then be responsible for all the firebase config settings for this app.
+Then, I connected the react to firebase database. To do this, I clicked on the settings icon on the side bar displaying “Project Overview”, then clicked “Project settings”, then scrolled to the button to then click “config” and then copied the code and pasted to a file I created called firebase.js, which will then be responsible for all the firebase config settings for this app. Refer to thid link on how to import firebase to your project: https://firebase.google.com/docs/web/setup, where you can find a snippet of code to refer to initialize firebase in your project, and then copy the config code we generated earlier inside it. Don't forget to install firbase and follow those normal steps-- npm install -g firabse-tools. The snippet of code is as follows:
+
+import firebase from 'firebase';
+
+const firebaseApp = firebase.initializeApp({
+});
+  
+const db = firebase.firestore();
+const auth = firebase.storage();
+const storage = firebase.storage();
+  
+
+export default {db, auth, storage};
+
+When you add the config code, you have something like this:
+import firebase from 'firebase';
+
+const firebaseApp = firebase.initializeApp({
+  apiKey: "AIzaSyCFdrUiNwyggJgtc7RzEsg6ivdUQkBKbqM",
+  authDomain: "instagram-clone-67720.firebaseapp.com",
+  projectId: "instagram-clone-67720",
+  storageBucket: "instagram-clone-67720.appspot.com",
+  messagingSenderId: "516318544601",
+  appId: "1:516318544601:web:4428f395e7e46170c874c8",
+  measurementId: "G-7H5EGQDEC2"
+});
+  
+const db = firebase.firestore();
+const auth = firebase.storage();
+const storage = firebase.storage();
+  
+
+export default {db, auth, storage};
+
+Summary: I called in this initialized firebase function provided by firebase, then passed in the config with the db (i.e database), auth (i.e. authentication - to create users, login, logout, etc.), storage (to upload images, videos etc), thereby grabbing 3 service from firebase, and storing them into 3 variables.
+
+Afterwards, I used useEffect to replace hard coded objects username, captions and imageUrl in the App.js. Note that useEfect runs a piece of code, based on a specific condition. For instance, it runs code when page refreshes. I added variable conditions in an array within the useEffect. Note that if the array is left blank, as placed inside the App.js, the behaviour would be that it runs once the component or app loads. But then it won't run again, which is actually good for what I need it for in this project. For instance, if the useEffect was in the Post.js component, it then means it would run once when the App component loads, but also every single time variable post changes.
+
+Afterwards, I pulled the information from the database and capture it under useState where I have objects userName, caption and imageUrl. Firebase is powerful for this. Hence, I imported the db from firebase.
